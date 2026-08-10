@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/playfair-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/img/hero-vonia-1440.avif" as="image" type="image/avif" fetchpriority="high" media="(min-width:1024px)">
+<link rel="preload" href="/img/hero-vonia-1190.avif" as="image" type="image/avif" fetchpriority="high" media="(min-width:1024px)">
 <link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">
 {
@@ -51,7 +51,10 @@
 
 <header class="nav" id="nav">
   <a class="nav-brand" href="#" aria-label="Viliusta MSD — į viršų">
-    <img src="/logo-mark.png" alt="MSD monograma" width="44" height="44">
+    <span class="nav-mark">
+      <img class="lm-d" src="/logo-mark.png" alt="MSD monograma" width="44" height="44">
+      <img class="lm-l" src="/logo-mark-light.png" alt="" width="44" height="44" aria-hidden="true">
+    </span>
     <span>Viliusta <em>MSD</em></span>
   </a>
   <nav class="nav-links" aria-label="Pagrindinė navigacija">
@@ -68,9 +71,9 @@
 <section class="hero" aria-label="Įžanga">
   <figure class="hero-fig">
     <picture>
-      <source type="image/avif" srcset="/img/hero-vonia-480.avif 480w, /img/hero-vonia-768.avif 768w, /img/hero-vonia-1080.avif 1080w, /img/hero-vonia-1440.avif 1440w" sizes="100vw">
-      <source type="image/webp" srcset="/img/hero-vonia-480.webp 480w, /img/hero-vonia-768.webp 768w, /img/hero-vonia-1080.webp 1080w, /img/hero-vonia-1440.webp 1440w" sizes="100vw">
-      <img src="/img/hero-vonia-1200.jpg" width="1440" height="1920" alt="Tamsi vonia su iš šono apšviestomis uolų imitacijos kolonomis prie veidrodžių" fetchpriority="high" decoding="async">
+      <source type="image/avif" srcset="/img/hero-vonia-480.avif 480w, /img/hero-vonia-768.avif 768w, /img/hero-vonia-1080.avif 1080w, /img/hero-vonia-1190.avif 1190w" sizes="100vw">
+      <source type="image/webp" srcset="/img/hero-vonia-480.webp 480w, /img/hero-vonia-768.webp 768w, /img/hero-vonia-1080.webp 1080w, /img/hero-vonia-1190.webp 1190w" sizes="100vw">
+      <img src="/img/hero-vonia-1080.jpg" width="1190" height="1920" alt="Tamsi vonia su iš šono apšviestomis uolų imitacijos kolonomis prie veidrodžių" fetchpriority="high" decoding="async">
     </picture>
     <figcaption class="cap">Tamsi vonia · uolos kolonos · Kaunas, 2026</figcaption>
   </figure>
@@ -80,12 +83,12 @@
       <span class="ln"><span>tai, ko nepasakytų</span></span>
       <span class="ln"><span>spalva.</span></span>
     </h1>
-    <p class="hero-sub">Meninis sienų dekoravimas: rankomis formuojamas reljefas, molio tinkas ir uolų imitacijos. Kuriama vietoje — kiekviena siena vienintelė.</p>
+    <p class="hero-sub">Meninis sienų dekoravimas: rankomis formuojamas reljefas, molio tinkas ir uolų imitacijos. Kuriama vietoje, kiekviena siena vienintelė.</p>
     <div class="hero-act">
       <a class="tel-big" href="tel:+37062028824">+370 620 28824</a>
       <a class="tlink" href="#darbai">Peržiūrėti darbus</a>
     </div>
-    <p class="hero-meta">Kaunas · dirbame visoje Lietuvoje — dekoratyvinis tinkas, uolų imitacijos, molio tinkas, židinių apdaila</p>
+    <p class="hero-meta">Kaunas · dirbame visoje Lietuvoje. Dekoratyvinis tinkas, uolų imitacijos, molio tinkas, židinių apdaila.</p>
   </div>
 </section>
 
@@ -359,7 +362,7 @@
   <img id="lbimg" src="" alt="Darbo nuotrauka padidinta" width="1440" height="1920">
   <p class="cap" id="lbcap"></p>
 </dialog>
-<div class="gcur" id="gcur-el" aria-hidden="true"><i></i><span>Žiūrėti</span></div>
+<div class="gcur" id="gcur-el" aria-hidden="true"><i></i><img src="/logo-mark.png" alt="" width="38" height="38"></div>
 
 <script src="/assets/lenis.min.js" defer></script>
 <script src="/assets/site.js" defer></script>

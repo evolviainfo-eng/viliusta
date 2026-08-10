@@ -39,8 +39,13 @@ if (reduced || !('IntersectionObserver' in window)){
 
 /* ---------- nav state ---------- */
 var nav = document.getElementById('nav');
-function navState(){ nav.classList.toggle('on', (window.scrollY || 0) > 10); }
+var heroSec = document.querySelector('.hero');
+function navState(){
+  var limit = heroSec ? heroSec.offsetHeight - 90 : 10;
+  nav.classList.toggle('on', (window.scrollY || 0) > limit);
+}
 addEventListener('scroll', navState, { passive: true });
+addEventListener('resize', navState, { passive: true });
 navState();
 
 /* ---------- Lenis (desktop, fine pointer only) ---------- */

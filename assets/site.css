@@ -83,18 +83,23 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity 380ms linear,transfor
 
 /* ============ NAV ============ */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-  padding:14px var(--inset);background:var(--paper);
-  transition:background var(--d-micro) linear,transform 300ms var(--ease-move)}
+  padding:14px var(--inset);background:transparent;color:var(--dark-ink);
+  transition:background var(--d-micro) linear,color var(--d-micro) linear,transform 300ms var(--ease-move)}
 .nav.hide{transform:translateY(-102%)}
 .nav.on{background:color-mix(in srgb, var(--paper) 92%, transparent);backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line)}
+  border-bottom:1px solid var(--line);color:var(--ink)}
 .nav-brand{display:flex;align-items:center;gap:12px}
-.nav-brand img{width:44px;height:44px}
-.nav-brand span{font-family:var(--serif);font-size:17px;letter-spacing:.06em}
-.nav-brand em{font-style:normal;color:var(--muted)}
+.nav-mark{position:relative;width:44px;height:44px;display:block}
+.nav-mark img{position:absolute;inset:0;width:44px;height:44px;transition:opacity var(--d-micro) linear}
+.nav .lm-d{opacity:0}
+.nav .lm-l{opacity:1}
+.nav.on .lm-d{opacity:1}
+.nav.on .lm-l{opacity:0}
+.nav-brand>span:last-child{font-family:var(--serif);font-size:17px;letter-spacing:.06em}
+.nav-brand em{font-style:normal;opacity:.55}
 .nav-links{display:flex;align-items:center;gap:34px}
 .nav-links a{font-size:14px;letter-spacing:.02em;position:relative;padding:6px 0}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:2px;width:100%;height:1px;background:var(--ink);
+.nav-links a::after{content:"";position:absolute;left:0;bottom:2px;width:100%;height:1px;background:currentColor;
   transform:scaleX(0);transform-origin:left;transition:transform 300ms var(--ease-move)}
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav-tel{font-variant-numeric:tabular-nums;font-weight:500}
@@ -125,7 +130,7 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity 380ms linear,transfor
 .tlink:hover::after{transform:scaleX(.4)}
 .hero .tlink::after{background:var(--dark-ink)}
 .hero-meta{margin-top:64px;font-size:14px;letter-spacing:.02em;max-width:52ch;
-  color:color-mix(in srgb, var(--dark-ink) 58%, transparent)}
+  color:color-mix(in srgb, var(--dark-ink) 82%, transparent)}
 @supports (animation-timeline: view()){
   @media (prefers-reduced-motion: no-preference){
     .hero-fig img{height:114%;animation:par linear both;animation-timeline:view(block)}
@@ -298,11 +303,11 @@ html.js .frame.in img{transform:none;transition:transform var(--d-clip) var(--ea
 .gcur i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   transform:scale(.16);background:var(--ink);border-radius:50%;
   transition:transform 260ms var(--ease-move),background 260ms var(--ease-move)}
-.gcur span{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;
-  opacity:0;transition:opacity 180ms linear 60ms}
+.gcur img{position:relative;width:38px;height:38px;opacity:0;transform:scale(.7);
+  transition:opacity 180ms linear 60ms,transform 260ms var(--ease-move)}
 .gcur.on{opacity:1}
 .gcur.frame i{transform:scale(1);background:transparent}
-.gcur.frame span{opacity:1}
+.gcur.frame img{opacity:1;transform:none}
 .gcur.press i{transform:scale(.88)}
 @media (hover:none),(pointer:coarse){.gcur{display:none}}
 
