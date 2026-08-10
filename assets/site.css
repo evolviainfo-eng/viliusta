@@ -83,7 +83,9 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity 380ms linear,transfor
 
 /* ============ NAV ============ */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-  padding:14px var(--inset);transition:background var(--d-micro) linear}
+  padding:14px var(--inset);background:var(--paper);
+  transition:background var(--d-micro) linear,transform 300ms var(--ease-move)}
+.nav.hide{transform:translateY(-102%)}
 .nav.on{background:color-mix(in srgb, var(--paper) 92%, transparent);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line)}
 .nav-brand{display:flex;align-items:center;gap:12px}
@@ -141,7 +143,7 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity 380ms linear,transfor
 .f-sq img{height:min(56vh,580px)}
 .f-mid img{height:min(46vh,480px)}
 .f-wide img{height:min(52vh,540px)}
-.frame .cap{margin-top:12px;max-width:44ch}
+.frame .cap{margin-top:12px;width:0;min-width:100%}
 .frame-btn picture{overflow:hidden;display:block}
 html.js .frame-btn picture{clip-path:inset(100% 0 0 0)}
 html.js .frame.in .frame-btn picture{clip-path:inset(0 0 0 0);transition:clip-path var(--d-clip) var(--ease-out)}
@@ -201,9 +203,9 @@ html.js .frame.in img{transform:none;transition:transform var(--d-clip) var(--ea
 .quote p{font-family:var(--serif);font-size:24px;line-height:1.4;color:var(--dark-ink);max-width:30ch}
 .quote cite{display:block;margin-top:18px;font-style:normal;font-size:12.5px;font-weight:500;
   letter-spacing:.16em;text-transform:uppercase;color:var(--clay);filter:brightness(1.35)}
-.proc-fig{position:relative;overflow:hidden;height:min(78vh,760px);align-self:stretch;height:auto}
-.proc-fig picture,.proc-fig img{width:100%;height:100%}
-.proc-fig img{object-fit:cover;min-height:520px}
+.proc-fig{position:relative;overflow:hidden;align-self:center;width:100%;height:min(74svh,700px)}
+.proc-fig picture{position:absolute;inset:0}
+.proc-fig img{width:100%;height:100%;object-fit:cover}
 .cap-dark{color:color-mix(in srgb, var(--dark-ink) 60%, transparent)}
 .proc-fig .cap{position:absolute;left:0;bottom:0;background:var(--dark);padding:10px 18px 10px 0;max-width:75%}
 
@@ -215,9 +217,15 @@ html.js .frame.in img{transform:none;transition:transform var(--d-clip) var(--ea
 .facts div{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-bottom:1px solid var(--line)}
 .facts dt{font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .facts dd{font-size:14px;font-variant-numeric:tabular-nums}
-.reviews{list-style:none;display:flex;flex-direction:column;gap:44px;align-self:center}
-.reviews p:first-child{font-size:17px;line-height:1.6;max-width:56ch}
-.rev-meta{margin-top:14px;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rev-col{align-self:center}
+.rev-score{font-family:var(--serif);font-size:24px;letter-spacing:-.01em;font-variant-numeric:lining-nums}
+.rev-score span{font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin-left:14px}
+.reviews{list-style:none;display:flex;flex-direction:column;gap:38px;margin-top:26px}
+.reviews li{border-top:1px solid var(--line);padding-top:28px}
+.reviews p:first-child{font-family:var(--serif);font-size:24px;line-height:1.45;letter-spacing:-.01em;
+  max-width:34ch;text-wrap:pretty}
+.rev-meta{margin-top:16px;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
 /* button — one system */
 .btn{display:inline-block;background:var(--clay);color:#FBF8F2;border:0;border-radius:var(--r);
@@ -308,7 +316,7 @@ html.js .frame.in img{transform:none;transition:transform var(--d-clip) var(--ea
 @media (max-width:640px){
   body{font-size:16px}
   .hl2{font-size:30px}
-  .mat-body h3,.quote p{font-size:21px}
+  .mat-body h3,.quote p,.reviews p:first-child,.rev-score{font-size:21px}
   .tel-big{font-size:21px}
   .nav-links{gap:20px}
   .nav-links a:not(.nav-tel){display:none}
@@ -319,7 +327,6 @@ html.js .frame.in img{transform:none;transition:transform var(--d-clip) var(--ea
   .mat-body{grid-area:body}
   .mat-price{grid-area:price;font-size:14px}
   .foot{flex-wrap:wrap;gap:10px}
-  .frame .cap{max-width:74vw}
 }
 
 /* mobile sticky call bar */

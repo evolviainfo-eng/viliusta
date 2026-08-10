@@ -107,6 +107,7 @@ function scrubSetup(){
   scrubOn = want;
   gal.classList.toggle('scrub', scrubOn);
   track.style.transform = '';
+  if (!scrubOn) nav.classList.remove('hide');
   if (scrubOn) scrubMeasure();
 }
 function scrubMeasure(){
@@ -119,6 +120,7 @@ function scrubFrame(){
   if (!scrubOn){ ticking = false; return; }
   var top = gal.getBoundingClientRect().top;
   var p = glen > 0 ? Math.min(1, Math.max(0, -top / glen)) : 0;
+  nav.classList.toggle('hide', top <= 1 && p < 0.999);
   target = -p * glen;
   cur += (target - cur) * (lenis ? 1 : 0.12);
   if (Math.abs(target - cur) < 0.5) cur = target;
