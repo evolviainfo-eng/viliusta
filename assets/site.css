@@ -99,26 +99,33 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity 380ms linear,transfor
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav-tel{font-variant-numeric:tabular-nums;font-weight:500}
 
-/* ============ HERO ============ */
-.hero{display:grid;grid-template-columns:1fr 52vw;min-height:calc(100svh - 150px);align-items:stretch}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;
-  padding:120px var(--inset) 48px calc(var(--inset));max-width:640px}
-.hero .hl{margin-top:22px}
-.hero-sub{margin-top:26px;max-width:44ch;color:var(--muted)}
+/* ============ HERO — tamsi vonia per visą ekraną, tekstas ant viršaus ============ */
+.hero{position:relative;min-height:calc(100svh - 150px);display:flex;align-items:center;
+  overflow:hidden;color:var(--dark-ink);background:var(--dark)}
+.hero-fig{position:absolute;inset:0}
+.hero-fig picture{position:absolute;inset:0}
+.hero-fig img{width:100%;height:100%;object-fit:cover;object-position:64% 42%}
+.hero-fig::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(98deg, color-mix(in srgb, var(--dark) 82%, transparent) 6%,
+    color-mix(in srgb, var(--dark) 46%, transparent) 40%, transparent 66%)}
+.hero-fig .cap{position:absolute;right:var(--inset);bottom:14px;z-index:1;
+  color:color-mix(in srgb, var(--dark-ink) 62%, transparent);max-width:60%;text-align:right}
+.hero-copy{position:relative;z-index:1;display:flex;flex-direction:column;
+  padding:150px var(--inset) 56px;max-width:720px}
+.hero-sub{margin-top:26px;max-width:44ch;color:color-mix(in srgb, var(--dark-ink) 76%, transparent)}
 .hero-act{margin-top:38px;display:flex;align-items:baseline;gap:36px;flex-wrap:wrap}
 .tel-big{font-size:24px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:.01em;
   border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color var(--d-micro) linear}
 .tel-big:hover{border-color:var(--ink)}
+.hero .tel-big{border-color:color-mix(in srgb, var(--dark-ink) 34%, transparent)}
+.hero .tel-big:hover{border-color:var(--dark-ink)}
 .tlink{font-size:14px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;position:relative;padding:6px 0}
 .tlink::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--ink);
   transform-origin:left;transition:transform 300ms var(--ease-move)}
 .tlink:hover::after{transform:scaleX(.4)}
-.hero-meta{margin-top:auto;padding-top:56px;font-size:14px;color:var(--muted);letter-spacing:.02em}
-.hero-fig{position:relative;overflow:hidden;min-height:100%}
-.hero-fig picture{position:absolute;inset:0}
-.hero-fig img{width:100%;height:100%;object-fit:cover}
-.hero-fig .cap{position:absolute;left:0;bottom:0;background:var(--paper);color:var(--muted);
-  padding:10px 18px 10px 0;max-width:75%}
+.hero .tlink::after{background:var(--dark-ink)}
+.hero-meta{margin-top:64px;font-size:14px;letter-spacing:.02em;max-width:52ch;
+  color:color-mix(in srgb, var(--dark-ink) 58%, transparent)}
 @supports (animation-timeline: view()){
   @media (prefers-reduced-motion: no-preference){
     .hero-fig img{height:114%;animation:par linear both;animation-timeline:view(block)}
@@ -217,15 +224,15 @@ html.js .frame.in img{transform:none;transition:transform var(--d-clip) var(--ea
 .facts div{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-bottom:1px solid var(--line)}
 .facts dt{font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .facts dd{font-size:14px;font-variant-numeric:tabular-nums}
-.rev-col{align-self:center}
+.rev-col{align-self:start}
 .rev-score{font-family:var(--serif);font-size:24px;letter-spacing:-.01em;font-variant-numeric:lining-nums}
 .rev-score span{font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted);margin-left:14px}
-.reviews{list-style:none;display:flex;flex-direction:column;gap:38px;margin-top:26px}
-.reviews li{border-top:1px solid var(--line);padding-top:28px}
-.reviews p:first-child{font-family:var(--serif);font-size:24px;line-height:1.45;letter-spacing:-.01em;
+.reviews{list-style:none;display:flex;flex-direction:column;gap:28px;margin-top:24px}
+.reviews li{border-top:1px solid var(--line);padding-top:22px}
+.reviews p:first-child{font-family:var(--serif);font-size:24px;line-height:1.4;letter-spacing:-.01em;
   max-width:34ch;text-wrap:pretty}
-.rev-meta{margin-top:16px;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rev-meta{margin-top:12px;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
 /* button — one system */
 .btn{display:inline-block;background:var(--clay);color:#FBF8F2;border:0;border-radius:var(--r);
@@ -301,10 +308,13 @@ html.js .frame.in img{transform:none;transition:transform var(--d-clip) var(--ea
 
 /* ============ BREAKPOINTS ============ */
 @media (max-width:1023px){
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero-copy{padding-top:110px;max-width:none;order:1}
-  .hero-fig{order:2;height:64svh}
-  .hero-meta{padding-top:44px}
+  .hero{min-height:calc(100svh - 90px)}
+  .hero-copy{padding-top:120px}
+  .hero-fig img{object-position:56% 30%}
+  .hero-fig::after{background:linear-gradient(180deg, color-mix(in srgb, var(--dark) 74%, transparent) 0%,
+    color-mix(in srgb, var(--dark) 42%, transparent) 58%, transparent 88%)}
+  .hero-fig .cap{display:none}
+  .hero-meta{margin-top:48px}
   .proc{grid-template-columns:1fr;gap:56px;padding-right:0}
   .proc-copy{padding-right:var(--inset)}
   .proc-fig{height:56svh}
