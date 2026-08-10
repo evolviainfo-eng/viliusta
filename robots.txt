@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /qa.html
+
+Sitemap: https://viliusta.vercel.app/sitemap.xml
